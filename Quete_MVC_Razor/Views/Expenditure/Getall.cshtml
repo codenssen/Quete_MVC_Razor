@@ -1,0 +1,35 @@
+﻿@model List<Quete_MVC_Razor.Models.Expenditure>
+
+@{
+    List<double> totalPrice = new List<double>();
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expenditure in Model)
+        {
+            <tr>
+                <th scope="row">@expenditure.Id</th>
+                <td>@expenditure.Name</td>
+                <td>@expenditure.Price</td>
+                <td>@expenditure.Date</td>
+            </tr>
+            totalPrice.Add(expenditure.Price);
+        }
+
+    </tbody>
+  </table>
+
+<h2>Prix total : @totalPrice.Sum() €</h2>
+
+
+
+
